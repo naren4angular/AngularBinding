@@ -15,6 +15,13 @@ import { getCurrencySymbol } from '@angular/common';
       <button (click) ="onClick($event)">Greet</button>
       <button (click)="greeting ='Welcome Narendra'">Greet</button>
       {{greeting}}
+      <input #myInput type="text">
+      <button (click)="logMessage(myInput.value)">Log</button>
+      <input #myInput type="text">
+      <button (click)="logMessage(myInput)">Log</button>
+      <input [(ngModel)] ="name"  type = "text">
+      {{name}}
+
 
 
   `,
@@ -31,7 +38,8 @@ import { getCurrencySymbol } from '@angular/common';
   `]
 })
 export class TestComponent implements OnInit {
-  public name = "Narendra Reddy";
+  public name="";
+  //public name = "Narendra Reddy";
   public successClass ="text-success";
   public hasError  = false;
   public isSpecial = true;
@@ -62,6 +70,9 @@ export class TestComponent implements OnInit {
   }
   userGreetings(){
     return "Learning Angular" +this.name;
+  }
+  logMessage(value){
+    console.log(value);
   }
 
 }
